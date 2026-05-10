@@ -81,7 +81,7 @@ export default function ShipRequestPage() {
     await supabase.from("ship_request_packages").insert(packageLinks);
 
     // Update package statuses
-    for (const pkgId of selected) {
+    for (const pkgId of Array.from(selected)) {
       await supabase.from("packages").update({ status: "ship_requested" }).eq("id", pkgId);
       await supabase.from("status_history").insert({
         package_id: pkgId,
