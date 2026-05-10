@@ -9,7 +9,7 @@ import { Upload, Loader2, AlertCircle, CheckCircle2, FileText } from "lucide-rea
 import { toast } from "sonner";
 import { Package } from "@/types";
 
-interface EligiblePackage extends Package {
+interface EligiblePackage extends Omit<Package, "invoice"> {
   invoice: {
     review_status: string;
     admin_notes: string | null;
